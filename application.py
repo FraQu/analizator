@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import *
+from libs.count_letters import count_letters
 from msg_box import _msg_box
 
 
@@ -42,7 +43,7 @@ class Application:
 
         count_menu = Menu(menu_bar, tearoff=0)
         menu_bar.add_cascade(label="Count", menu=count_menu)
-        count_menu.add_command(label="Count letters...")
+        count_menu.add_command(label="Count letters...", command=count_letters)
         count_menu.add_command(label="Count punctuation marks...")
         count_menu.add_command(label="Count sentences...")
         count_menu.add_command(label="Count words...")
