@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import *
+from msg_box import _msg_box
 
 
 class Application:
@@ -48,7 +49,7 @@ class Application:
 
         help_menu = Menu(menu_bar, tearoff=0)
         menu_bar.add_cascade(label="Help", menu=help_menu)
-        help_menu.add_command(label="About...")
+        help_menu.add_command(label="About...", command=_msg_box)
 
 
 app = Application()
