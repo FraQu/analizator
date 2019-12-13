@@ -12,7 +12,7 @@ class Application:
 
     def _widgets_styling(self):
         ##
-        # Style widgets
+        # Style of widgets
         ##
         self.win.geometry("800x800")
         self.win.title("Text Analyzer")
