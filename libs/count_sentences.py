@@ -17,7 +17,7 @@ def count_sentences():
         sentences = len(data.split("."))
         text = Label(win, text="Number of sentences in text: ")
         text.pack()
-        number_of_sentences = Label(win, text=sentences)
+        number_of_sentences = Label(win, text=sentences - 1)
         number_of_sentences.pack()
     except IOError:
         msg.showinfo("There is no file!", "Download file...")
