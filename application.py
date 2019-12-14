@@ -7,6 +7,7 @@ from libs.generate_raport import generate
 from libs.usage_report import plot_usage_statistics
 from libs.file_download import file_download
 from libs.count_words import count_words
+from libs.delete_file import delete_file
 from msg_box import _msg_box
 
 
@@ -45,7 +46,7 @@ class Application:
         file_menu.add_command(label="Generate usage report [A-Z]...", command=plot_usage_statistics)
         file_menu.add_command(label="Save file...")
         file_menu.add_command(label="Save statistics...", command=generate)
-        file_menu.add_command(label="Exit")
+        file_menu.add_command(label="Exit", command=delete_file)
 
         count_menu = Menu(menu_bar, tearoff=0)
         menu_bar.add_cascade(label="Count", menu=count_menu)
