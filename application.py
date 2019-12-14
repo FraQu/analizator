@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import *
 from libs.count_letters import count_letters
 from libs.usage_report import plot_usage_statistics
+from libs.file_download import file_download
 from msg_box import _msg_box
 
 
@@ -35,7 +36,7 @@ class Application:
 
         file_menu = Menu(menu_bar, tearoff=0)
         menu_bar.add_cascade(label="File", menu=file_menu)
-        file_menu.add_command(label="Download hardcoded file")
+        file_menu.add_command(label="Download hardcoded file", command=file_download)
         file_menu.add_command(label="Open file...")
         file_menu.add_command(label="Generate usage report [A-Z]...", command=plot_usage_statistics)
         file_menu.add_command(label="Save file...")
