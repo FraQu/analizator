@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import *
 from libs.count_letters import count_letters
 from libs.count_punctuation_marks import count_punctuation_marks
+from libs.count_sentences import count_sentences
 from libs.usage_report import plot_usage_statistics
 from libs.file_download import file_download
 from libs.count_words import  count_words
@@ -49,7 +50,7 @@ class Application:
         menu_bar.add_cascade(label="Count", menu=count_menu)
         count_menu.add_command(label="Count letters...", command=count_letters)
         count_menu.add_command(label="Count punctuation marks...", command=count_punctuation_marks)
-        count_menu.add_command(label="Count sentences...")
+        count_menu.add_command(label="Count sentences...", command=count_sentences)
         count_menu.add_command(label="Count words...", command=count_words)
 
         help_menu = Menu(menu_bar, tearoff=0)
