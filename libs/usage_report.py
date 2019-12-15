@@ -22,6 +22,15 @@ def plot_usage_statistics():
         win.title("Usage of letters")
 
         counter = Counter(data)
+        consonants = counter['b'] + counter ['B'] + counter ['c'] + counter ['C'] + counter ['d'] + counter ['D'] \
+        + counter['f'] + counter ['F'] + counter ['g'] + counter ['G'] + counter ['h'] + counter ['H'] \
+        + counter['j'] + counter ['J'] + counter ['k'] + counter ['K'] + counter ['l'] + counter ['L'] \
+        + counter['m'] + counter ['M'] + counter ['n'] + counter ['N'] + counter ['p'] + counter ['P'] \
+        + counter['q'] + counter ['Q'] + counter ['r'] + counter ['R'] + counter ['s'] + counter ['S'] \
+        + counter['t'] + counter ['T'] + counter ['v'] + counter ['V'] + counter ['w'] + counter ['W'] \
+        + counter['x'] + counter ['X'] + counter ['z'] + counter ['Z']
+        vowels = counter['a'] + counter ['A'] + counter ['e'] + counter ['E'] + counter ['i'] + counter ['I'] \
+        + counter['o'] + counter ['O'] + counter ['u'] + counter ['U'] + counter ['y'] + counter ['Y']
         a = counter['a'] + counter['A']
         b = counter['b'] + counter['B']
         c = counter['c'] + counter['C']
@@ -100,6 +109,10 @@ def plot_usage_statistics():
         text.insert(END, y)
         text.insert(END, "\nZ: ")
         text.insert(END, z)
+        text.insert(END, "\nConsonants: ")
+        text.insert(END, consonants)
+        text.insert(END, "\nVowels: ")
+        text.insert(END, vowels)
         text.pack()
 
     except IOError:
