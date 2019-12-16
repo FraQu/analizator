@@ -32,7 +32,7 @@ def generate():
         data = file.read()
         count = 0
         for i in range(0, len(data)):
-            if data[i] in ("!", ",", "'", ";", '"', ".", "-", "?"):
+            if data[i] in (".", "?"):
                 count = count + 1
         punctuation_marks = count
 
