@@ -1,23 +1,36 @@
 import requests
-from libs import file_name, file_url
+from libs import file_name
+
+from tkinter import *
 from tkinter import messagebox
 
 
-def file_download():
+def file_download_window():
     ###
-    # Download file from url and save as 'name from fine_name.py' for later purposes.
+    # Download file from url and save as '5.txt' for later purposes.
     ###
-    answer = messagebox.askquestion("Download file?", "Do you want to download file?")
-    if answer == 'yes':
-        messagebox.showinfo('File downloaded...', 'File has been downloaded and saved to Application path.')
-        url = file_url.url
-        filename = file_name.name_file
-        download_file = requests.get(url, stream=True)
+    answer = messagebox.askquestion("Download file?", "Do you want to download file from Internet?")
 
-        with open(filename, 'wb') as file:
-            for chunk in download_file.iter_content(chunk_size=1024):
-                if not chunk:
-                    break
-                file.write(chunk)
+    if answer == 'yes':
+        win = Tk()
+        win.title("Download file...")
+
+        box = StringVar()
+        entry = Entry(win, textvariable=box, width=50)
+        entry.pack()
+
+        def file_download():
+            url = entry.get()
+            download_file = requests.get(url, allow_redirects=True)
+
+            filename = file_name.name_file
+            with open(filename, 'wb') as file:
+                file.write(download_file.content)
+            messagebox.showinfo('File downloaded...', 'File has been downloaded and saved to Application path as '
+                                                      '"5.txt".')
+            win.destroy()
+        button = Button(win, text="Download", command=file_download)
+        button.pack()
     else:
         messagebox.showinfo('Download or open...', 'You need to download or open file first!')
+
