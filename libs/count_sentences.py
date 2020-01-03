@@ -14,10 +14,12 @@ def count_sentences():
         win.geometry("400x200")
         win.title("Number of sentences")
         data = file.read()
-        sentences = len(data.split("."))
+
+        sentences = re.split(r'[.?!]\s*', data)
+        count_sentence = len(sentences) - 1
         text = Label(win, text="Number of sentences in text: ")
         text.pack()
-        number_of_sentences = Label(win, text=sentences - 1)
+        number_of_sentences = Label(win, text=count_sentence)
         number_of_sentences.pack()
     except IOError:
         msg.showinfo("There is no file!", "Download file...")
