@@ -5,6 +5,7 @@ from collections import Counter
 from libs import file_name
 
 
+
 def plot_usage_statistics():
     try:
 
@@ -21,6 +22,20 @@ def plot_usage_statistics():
         win.geometry("400x460")
         win.title("Usage of letters")
 
+        vowels = 0
+        vowels_list = ['A', 'a', 'E', 'e', 'I', 'i', 'O', 'o', 'U', 'u', 'Y', 'y']
+        for char in data:
+            if char in vowels_list:
+                vowels = vowels + 1
+
+        consonants = 0
+        consonants_list = ['B', 'b', 'C', 'c', 'D', 'd', 'F', 'f', 'G', 'g', 'H', 'h', 'J', 'j', 'K', 'k', 'L', 'l',
+                           'M', 'm', 'N', 'n', 'p', 'P', 'R', 'r', 'S', 's', 'T', 't', 'W', 'w', 'X', 'x', 'Z', 'z']
+        for char in data:
+            if char in consonants_list:
+                consonants = consonants + 1
+
+
         counter = Counter(data)
         consonants = counter['b'] + counter ['B'] + counter ['c'] + counter ['C'] + counter ['d'] + counter ['D'] \
         + counter['f'] + counter ['F'] + counter ['g'] + counter ['G'] + counter ['h'] + counter ['H'] \
@@ -29,8 +44,7 @@ def plot_usage_statistics():
         + counter['q'] + counter ['Q'] + counter ['r'] + counter ['R'] + counter ['s'] + counter ['S'] \
         + counter['t'] + counter ['T'] + counter ['v'] + counter ['V'] + counter ['w'] + counter ['W'] \
         + counter['x'] + counter ['X'] + counter ['z'] + counter ['Z']
-        vowels = counter['a'] + counter ['A'] + counter ['e'] + counter ['E'] + counter ['i'] + counter ['I'] \
-        + counter['o'] + counter ['O'] + counter ['u'] + counter ['U'] + counter ['y'] + counter ['Y']
+
         a = counter['a'] + counter['A']
         b = counter['b'] + counter['B']
         c = counter['c'] + counter['C']
