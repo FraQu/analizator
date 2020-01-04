@@ -8,7 +8,6 @@ from libs.count_sentences import count_sentences
 from libs.count_words import count_words
 from libs.delete_file import delete_file
 from libs.file_download import file_download_window
-from libs.file_name import name_file
 from libs.generate_raport import generate
 from libs.file_name import name_file
 from libs.usage_report import plot_usage_statistics
@@ -46,7 +45,7 @@ class Application:
 
         file_menu = Menu(menu_bar, tearoff=0)
         menu_bar.add_cascade(label="File", menu=file_menu)
-        file_menu.add_command(label="Download hardcoded file", command=file_download_window)
+        file_menu.add_command(label="Download file from URL", command=file_download_window)
         file_menu.add_command(label="Open file...", command=self.open_file)
         file_menu.add_command(label="Generate usage report [A-Z]...", command=plot_usage_statistics)
         file_menu.add_command(label="Save file...", command=self.save_file)

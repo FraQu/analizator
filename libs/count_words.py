@@ -21,7 +21,6 @@ def count_words():
         number_of_words = Label(win, text=words)
         number_of_words.pack()
 
-
     except IOError:
         msg.showinfo("There is no file!", "Download file...")
 
