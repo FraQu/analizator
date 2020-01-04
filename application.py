@@ -45,7 +45,7 @@ class Application:
 
         file_menu = Menu(menu_bar, tearoff=0)
         menu_bar.add_cascade(label="File", menu=file_menu)
-        file_menu.add_command(label="Download hardcoded file", command=file_download_window)
+        file_menu.add_command(label="Download file from URL", command=file_download_window)
         file_menu.add_command(label="Open file...", command=self.open_file)
         file_menu.add_command(label="Generate usage report [A-Z]...", command=plot_usage_statistics)
         file_menu.add_command(label="Save file...", command=self.save_file)

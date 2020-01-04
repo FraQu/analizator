@@ -15,7 +15,7 @@ def count_sentences():
         win.title("Number of sentences")
         data = file.read()
 
-        sentences = re.split(r'[.?!]\s*', data)
+        sentences = re.split(r'[.?]\s*', data)
         count_sentence = len(sentences) - 1
         text = Label(win, text="Number of sentences in text: ")
         text.pack()
