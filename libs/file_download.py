@@ -26,10 +26,10 @@ def file_download_window():
             filename = file_name.name_file
             with open(filename, 'wb') as file:
                 file.write(download_file.content)
-            messagebox.showinfo('File downloaded...', 'File has been downloaded and saved to Application path as '
-                                                      '"5.txt".')
+            messagebox.showinfo('File downloaded...', 'File has been downloaded and saved to Application path as ' +
+                                                      filename + '.')
             win.destroy()
-        button = Button(win, text="Download", command=file_download)
+        button = Button(win, text="Download file", command=file_download)
         button.pack()
     else:
         messagebox.showinfo('Download or open...', 'You need to download or open file first!')
