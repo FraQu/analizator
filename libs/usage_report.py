@@ -5,7 +5,6 @@ from collections import Counter
 from libs import file_name
 
 
-
 def plot_usage_statistics():
     try:
 
