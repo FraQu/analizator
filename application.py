@@ -8,7 +8,6 @@ from libs.count_sentences import count_sentences
 from libs.count_words import count_words
 from libs.delete_file import delete_file
 from libs.file_download import file_download_window
-from libs.file_name import name_file
 from libs.generate_raport import generate
 from libs.file_name import name_file
 from libs.usage_report import plot_usage_statistics
