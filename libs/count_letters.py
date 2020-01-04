@@ -1,14 +1,14 @@
 import tkinter as tk
 from tkinter import *
-from libs import file_name
 from tkinter import messagebox as msg
+
+from libs import file_name
 
 
 def count_letters():
     ##
     # Show Window about letters in text.
     ##
-
     try:
         file = open(file_name.name_file)
         win = tk.Toplevel()
