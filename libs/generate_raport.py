@@ -1,17 +1,18 @@
-from libs import file_name
-from tkinter import messagebox as msg
 from collections import Counter
+from tkinter import messagebox as msg
+
+from libs import file_name
+
 
 def generate():
-
     try:
-        #Count words
+        # Count words
         file = open(file_name.name_file)
         data = file.read()
         rm_spaces = data.replace(".", " ")
         words = len(rm_spaces.split(" "))
 
-        #Count letters
+        # Count letters
 
         file = open(file_name.name_file)
         data = file.read()
@@ -26,8 +27,7 @@ def generate():
         rm_d = rm_a.replace("-", "")
         rm_an = len(rm_d.replace("$", ""))
 
-        #Count punctuation marks
-
+        # Count punctuation marks
         file = open(file_name.name_file)
         data = file.read()
         count = 0
@@ -36,8 +36,7 @@ def generate():
                 count = count + 1
         punctuation_marks = count
 
-        #Count sentences
-
+        # Count sentences
         file = open(file_name.name_file)
 
         data = file.read()
