@@ -7,7 +7,7 @@ from tkinter import messagebox
 
 def file_download_window():
     ###
-    # Download file from url and save as '5.txt' for later purposes.
+    # Ask user about URL of downloading file and save as '5.txt' for later purposes.
     ###
     answer = messagebox.askquestion("Download file?", "Do you want to download file from Internet?")
 
