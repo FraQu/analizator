@@ -16,20 +16,17 @@ def count_letters():
         win.title("Number of letters")
 
         data = file.read()
-        rm_spaces = data.replace(" ", "")
-        rm_dots = rm_spaces.replace(".", "")
-        rm_q = rm_dots.replace("?", "")
-        rm_em = rm_q.replace("!", "")
-        rm_sc = rm_em.replace(";", "")
-        rm_comm = rm_sc.replace(",", "")
-        rm_c = rm_comm.replace(":", "")
-        rm_a = rm_c.replace("'", "")
-        rm_d = rm_a.replace("-", "")
-        rm_an = len(rm_d.replace("$", ""))
+        letters = ['A', 'a', 'E', 'e', 'I', 'i', 'O', 'o', 'U', 'u', 'Y', 'y', 'B', 'b', 'C', 'c', 'D', 'd', 'F', 'f',
+                   'G', 'g', 'H', 'h', 'J', 'j', 'K', 'k', 'L', 'l', 'M', 'm', 'N', 'n', 'p', 'P', 'R', 'r', 'S', 's',
+                   'T', 't', 'W', 'w', 'X', 'x', 'Z', 'z']
+        count = 0
+        for char in data:
+            if char in letters:
+                count = count + 1
 
         text = Label(win, text="Number of letters in text: ")
         text.pack()
-        number_of_letters = Label(win, text=rm_an)
+        number_of_letters = Label(win, text=count)
         number_of_letters.pack()
 
     except IOError:
