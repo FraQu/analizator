@@ -16,18 +16,23 @@ def count_letters():
         win.title("Number of letters")
 
         data = file.read()
-        letters = ['A', 'a', 'E', 'e', 'I', 'i', 'O', 'o', 'U', 'u', 'Y', 'y', 'B', 'b', 'C', 'c', 'D', 'd', 'F', 'f',
-                   'G', 'g', 'H', 'h', 'J', 'j', 'K', 'k', 'L', 'l', 'M', 'm', 'N', 'n', 'p', 'P', 'R', 'r', 'S', 's',
-                   'T', 't', 'W', 'w', 'X', 'x', 'Z', 'z']
-        count = 0
+        vowels = 0
+        vowels_list = ['A', 'a', 'E', 'e', 'I', 'i', 'O', 'o', 'U', 'u', 'Y', 'y']
         for char in data:
-            if char in letters:
-                count = count + 1
+            if char in vowels_list:
+                vowels = vowels + 1
 
-        text = Label(win, text="Number of letters in text: ")
-        text.pack()
-        number_of_letters = Label(win, text=count)
-        number_of_letters.pack()
+        consonants = 0
+        consonants_list = ['B', 'b', 'C', 'c', 'D', 'd', 'F', 'f', 'G', 'g', 'H', 'h', 'J', 'j', 'K', 'k', 'L', 'l',
+                           'M', 'm', 'N', 'n', 'p', 'P', 'R', 'r', 'S', 's', 'T', 't', 'W', 'w', 'X', 'x', 'Z', 'z']
+        for char in data:
+            if char in consonants_list:
+                consonants = consonants + 1
+
+        number_of_vowels = Label(win, text="Number of vowels in text: " + str(vowels))
+        number_of_vowels.pack()
+        number_of_consonants = Label(win, text="Number of consonants in text: " + str(consonants))
+        number_of_consonants.pack()
 
     except IOError:
         msg.showinfo("There is no file!", "Download file...")
