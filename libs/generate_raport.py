@@ -1,4 +1,4 @@
-from collections import Counter
+import re
 from tkinter import messagebox as msg
 
 from libs import file_name
@@ -6,6 +6,8 @@ from libs import file_name
 
 def generate():
     try:
+        filename = "statistics.txt"
+
         # Count words
         file = open(file_name.name_file)
         data = file.read()
@@ -13,23 +15,15 @@ def generate():
         words = len(rm_spaces.split(" "))
 
         # Count letters
-
-        file = open(file_name.name_file)
-        data = file.read()
-        rm_spaces = data.replace(" ", "")
-        rm_dots = rm_spaces.replace(".", "")
-        rm_q = rm_dots.replace("?", "")
-        rm_em = rm_q.replace("!", "")
-        rm_sc = rm_em.replace(";", "")
-        rm_comm = rm_sc.replace(",", "")
-        rm_c = rm_comm.replace(":", "")
-        rm_a = rm_c.replace("'", "")
-        rm_d = rm_a.replace("-", "")
-        rm_an = len(rm_d.replace("$", ""))
+        letters = ['A', 'a', 'E', 'e', 'I', 'i', 'O', 'o', 'U', 'u', 'Y', 'y', 'B', 'b', 'C', 'c', 'D', 'd', 'F', 'f',
+                   'G', 'g', 'H', 'h', 'J', 'j', 'K', 'k', 'L', 'l', 'M', 'm', 'N', 'n', 'p', 'P', 'R', 'r', 'S', 's',
+                   'T', 't', 'W', 'w', 'X', 'x', 'Z', 'z']
+        count_letters = 0
+        for char in data:
+            if char in letters:
+                count_letters = count_letters + 1
 
         # Count punctuation marks
-        file = open(file_name.name_file)
-        data = file.read()
         count = 0
         for i in range(0, len(data)):
             if data[i] in (".", "?"):
@@ -37,24 +31,10 @@ def generate():
         punctuation_marks = count
 
         # Count sentences
-        file = open(file_name.name_file)
+        sentences = re.split(r'[.?]\s*', data)
+        sentences = len(sentences) - 1
 
-        data = file.read()
-        sentences = len(data.split("."))
-        sentences = sentences - 1
-
-        filename = "statistics.txt"
-
-        if filename:
-            with open(filename, "w") as file:
-                file.write("Count letters: " + str(rm_an) + "\n")
-                + file.write("Count punctuation marks: " + str(punctuation_marks) + "\n") \
-                + file.write("Count sentences: " + str(sentences) + "\n") \
-                + file.write("Count words: " + str(words))
-
-        file = open(file_name.name_file, encoding="utf8")
-        data = file.read()
-
+        # Count Vowels and Consonants
         vowels = 0
         vowels_list = ['A', 'a', 'E', 'e', 'I', 'i', 'O', 'o', 'U', 'u', 'Y', 'y']
         for char in data:
@@ -70,15 +50,13 @@ def generate():
 
         if filename:
             with open(filename, "w") as file:
-                file.write("Count letters: " + str(rm_an) + "\n")
-                + file.write("Count punctuation marks: " + str(punctuation_marks) + "\n") \
-                + file.write("Count sentences: " + str(sentences) + "\n") \
-                + file.write("Count words: " + str(words) + "\n")
-                + file.write("Count consonants: " + str(consonants) + "\n" ) \
-                + file.write("Count vowels: " + str(vowels))
+                file.write("Letters in text: " + str(count_letters) + "\n")
+                + file.write("Punctuation marks in text: " + str(punctuation_marks) + "\n") \
+                + file.write("Sentences in text: " + str(sentences) + "\n") \
+                + file.write("Words in text: " + str(words) + "\n")
+                + file.write("Consonants in text: " + str(consonants) + "\n" ) \
+                + file.write("Vowels in text: " + str(vowels))
 
     except IOError:
         msg.showinfo("There is no file!", "Download file...")
-
-
 
